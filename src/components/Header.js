@@ -1,6 +1,5 @@
 
-import React from 'react'
-import "../style.css"
+import "../styles/Header.css"
 import troll_face from "../images/troll-face.png"
 
 export default function Header() {

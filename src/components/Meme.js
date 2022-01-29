@@ -1,11 +1,14 @@
+
 import { useEffect, useState } from "react"
+import "../styles/Meme.css"
 
 export default function Meme() {
 
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
-        randomImage: ""
+        randomImage: "",
+        imageTitle: "press the button"
     })
     const [allMemes, setAllMemes] = useState([])
 
@@ -21,9 +24,11 @@ export default function Meme() {
     function getMemeImage() {
         const randomNumber = Math.floor(Math.random() * allMemes.length)
         const url = allMemes[randomNumber].url;
+        const title = allMemes[randomNumber].title;
         setMeme(prevMeme => ({
             ...prevMeme,
-            randomImage: url
+            randomImage: url,
+            imageTitle: title
         }))
     }
 
@@ -57,11 +62,13 @@ export default function Meme() {
                 <button className="form--button" onClick={getMemeImage}>Get a new meme image 🖼️</button>
             </div>  
             <div className="meme">
-                <img src={meme.randomImage} className="meme--image" />
+                {meme.randomImage!="" && <img src={meme.randomImage} alt={meme.imageTitle} className="meme--image" />}
+                {meme.randomImage===""
+                    && allMemes[0]
+                    && <img src={allMemes[0].url} alt={allMemes[0].title} className="meme--image" />}
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
-
         </main>
     )
 }
