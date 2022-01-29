@@ -11,7 +11,7 @@ a random meme fetched from [imgflip's api](https://imgflip.com/)
 ## How to run it
 In the project directory you can run:
 ### `npm start`
-open [http://localhost:3000]([http://localhost:3000) to view it in your browser
+open [http://localhost:3000](http://localhost:3000) to view it in your browser
 ***
 
 ## Main resource
